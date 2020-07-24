@@ -1,0 +1,46 @@
+  /*
+    For each node, if it's a directory, add all files to end of list.
+    As list advances, we should examine every single directory created...
+    So it's essentially a recursive method.
+
+    **** WHERE DOES IT STOP?!  BASE CASE??! ****
+    - Do not recurse if filename is "." or ".." ??
+
+    We never want to go deeper than the pwd (present working directory) of the head node.
+
+    Q: what should the path be?
+    A: the path for the entire list should be the filename of the head node.
+      - Eliminate the 'path' property, and just use filename.
+      - The base path will be the filename that is the head node of the directory.
+        ** Question For Later: what happens if this filename is "." or ".." ??
+
+    ** ROADMAP **
+    - Iterate list... for each filename...
+
+    - Open directory.
+
+    - Read the directory.
+      * If directory doesn't exist, continue to next file in list.
+
+      - While reading directory, if filename is "." or "..", skip to next file.
+        * These files exist in every directory.
+        * Continuing to read them creates an infinite loop.
+
+      - Concatenate base path (filename of the original head node) with current filename.
+      - Add new node to end of list with the concatenated filename.
+
+    - As we continue to navigate the list..
+      This process will be repeated for every new node created that's a directory.
+  */
+
+
+
+    // else if ((strcmp(filename, ".") == 0) && is_root) {
+    //   is_root = false;
+    //   DIR       *root_dir;
+    //   root_dir = opendir(filename);
+    //   char *full_root = concat_path_to_filename(root, filename);
+    //   read_dir(node, root_dir, is_root, full_root);
+    // }
+
+    

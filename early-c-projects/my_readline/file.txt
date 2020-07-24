@@ -1,0 +1,6 @@
+This is a test.
+Will my_readline read each line individually?
+Or will it print out all the text at once?
+Let's test what happens...
+With some new lines at the end of the file?
+

@@ -1,0 +1,37 @@
+TESTING!
+
+IDIR =../include
+CC=gcc
+CFLAGS=-I$(IDIR)
+
+ODIR=obj
+LDIR =../lib
+
+LIBS=-lm
+
+_DEPS = my_tar.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+
+_OBJ = arguments.o create.o destroy.o extract.o info.o main.o options.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+
+$(ODIR)/%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+my_tar: $(OBJ)
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+
+clean:
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
+
+
+3/2/20
+Eureka moment:
+  - helpers.c, line 94: add_dir_files_to_list() ==>
+    * returns HEAD of file_list.
+
+  FOR AFTERNOON: set breakpoint at helpers.c, line 58!!
+  
